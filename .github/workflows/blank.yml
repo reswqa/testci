@@ -25,11 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout to my project
         uses: actions/checkout@v2
-        with:
-          path: 'a'
 
       - name: copy patch to dir
-        run: cp ./patch.patch ${{ github.workspace }}
+        run: cp ${{ github.workspace }}/testci/a/patch.patch ${{ github.workspace }}
 
       - name: checkout to flink
         uses: actions/checkout@v2

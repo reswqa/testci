@@ -36,7 +36,7 @@ jobs:
           ref: 'main'
 
       - name: apply patch
-        run: ls -l ${{ github.workspace }}; git apply ${{ github.workspace }}/patch.patch
+        run: cd ${{ github.workspace }}; ls -l; git apply ${{ github.workspace }}/patch.patch
 
       - name: install flink
         run: mvn clean install -DskipTests -Dfast

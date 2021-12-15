@@ -23,13 +23,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: checkout to my project
+        working-directory: ./my-project
+        uses: actions/checkout@v2
 
       - name: checkout to flink
+        working-directory: ./flink
         uses: actions/checkout@v2
         with:
-          repository: apache/flink
-          ref: 'release-1.13'
+          repository: flink-extended/flink-remote-shuffle
+          ref: 'main'
+      # apply patch
+
       - name: install flink
         run: mvn clean install -DskipTests -Dfast
 

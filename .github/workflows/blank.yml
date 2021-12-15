@@ -29,7 +29,7 @@ jobs:
           path: 'a'
 
       - name: copy patch to dir
-        run: cp ./patch.patch ${{ env.GITHUB_WORKSPACE }}
+        run: cp ./patch.patch ${{ github.workspace }}
 
       - name: checkout to flink
         uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
           ref: 'main'
 
       - name: apply patch
-        run: git apply ${{ env.GITHUB_WORKSPACE }}/patch.patch
+        run: git apply ${{ github.workspace }}/patch.patch
 
       - name: install flink
         run: mvn clean install -DskipTests -Dfast

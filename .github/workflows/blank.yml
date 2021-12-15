@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: copy patch to dir
-        run: cp ${{ github.workspace }}/a/patch.patch ${{ github.workspace }}
+        run: cp ${{ github.workspace }}/a/patch.patch ./app
 
       - name: checkout to flink
         uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
           ref: 'main'
 
       - name: apply patch
-        run: cd ${{ github.workspace }}; ls -l; git apply ${{ github.workspace }}/patch.patch
+        run: cd ./app; ls -l; git apply ${{ github.workspace }}/patch.patch
 
       - name: install flink
         run: mvn clean install -DskipTests -Dfast

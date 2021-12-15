@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: copy patch to dir
-        run: cd ${{ github.workspace }}; ls -l; cp ${{ github.workspace }}/a/patch.patch ./app
+        run: echo $pwd; ls -l; cp ${{ github.workspace }}/a/patch.patch ./app
 
       - name: checkout to flink
         uses: actions/checkout@v2

@@ -24,16 +24,21 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout to my project
-        working-directory: ./my-project
         uses: actions/checkout@v2
+        with:
+          path: 'a'
+
+      - name: copy patch to dir
+        run: cp ./patch.patch ${{ env.GITHUB_WORKSPACE }}
 
       - name: checkout to flink
-        working-directory: ./flink
         uses: actions/checkout@v2
         with:
           repository: flink-extended/flink-remote-shuffle
           ref: 'main'
-      # apply patch
+
+      - name: apply patch
+        run: git apply ${{ env.GITHUB_WORKSPACE }}/patch.patch
 
       - name: install flink
         run: mvn clean install -DskipTests -Dfast

@@ -1,0 +1,24 @@
+From addfe62ed1d50be3aa84355a2376d7890259007d Mon Sep 17 00:00:00 2001
+From: Weijie Guo <miaoxun.gwj@alibaba-inc.com>
+Date: Wed, 15 Dec 2021 17:04:45 +0800
+Subject: [PATCH] patch
+
+---
+ .../java/com/alibaba/flink/shuffle/examples/BatchJobDemo.java    | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/shuffle-examples/src/main/java/com/alibaba/flink/shuffle/examples/BatchJobDemo.java b/shuffle-examples/src/main/java/com/alibaba/flink/shuffle/examples/BatchJobDemo.java
+index edb9eba..1cf07fc 100644
+--- a/shuffle-examples/src/main/java/com/alibaba/flink/shuffle/examples/BatchJobDemo.java
++++ b/shuffle-examples/src/main/java/com/alibaba/flink/shuffle/examples/BatchJobDemo.java
+@@ -33,6 +33,7 @@ import java.util.Random;
+ /** Batch-shuffle job demo. */
+ public class BatchJobDemo {
+     public static void main(String[] args) throws Exception {
++        System.out.println("test patch");
+         int numRecords = 1024;
+         int parallelism = 4;
+         int recordSize = 1024;
+-- 
+2.30.1 (Apple Git-130)
+

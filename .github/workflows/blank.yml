@@ -30,10 +30,6 @@ jobs:
         with:
           repository: apache/flink
           ref: 'release-1.13'
-      # Runs a single command using the runners shell
-      - name: git clone and checkout
-        run: git clone https://github.com/apache/flink.git; git checkout origin/release-1.13
-
       - name: install flink
         run: mvn clean install -DskipTests -Dfast
 

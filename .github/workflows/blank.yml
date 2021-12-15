@@ -36,8 +36,8 @@ jobs:
           path: 'rss'
 
       - name: apply patch
-        run: cd ${{ github.workspace }}/rss; pwd; ls -l; git apply ${{ github.workspace }}/testci/a/patch.patch
+        run: cd ${{ github.workspace }}/rss; git apply ${{ github.workspace }}/testci/a/patch.patch
 
       - name: install flink
-        run: mvn clean install -DskipTests -Dfast
+        run: cd ${{ github.workspace }}/rss; mvn clean install -DskipTests -Dfast
 

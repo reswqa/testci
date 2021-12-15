@@ -25,18 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout to my project
         uses: actions/checkout@v2
-
-      - name: copy patch to dir
-        run: pwd; ls -l; cp ${{ github.workspace }}/a/patch.patch ./app
+        with:
+          path: 'testci'
 
       - name: checkout to flink
         uses: actions/checkout@v2
         with:
           repository: flink-extended/flink-remote-shuffle
           ref: 'main'
+          path: 'rss'
 
       - name: apply patch
-        run: cd ./app; ls -l; git apply ${{ github.workspace }}/patch.patch
+        run: git apply ${{ github.workspace }}/testci/a/patch.patch
 
       - name: install flink
         run: mvn clean install -DskipTests -Dfast

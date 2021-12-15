@@ -26,5 +26,9 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: mvn clean install
+      - name: git clone and checkout
+        run: git clone https://github.com/apache/flink.git; git checkout origin/release-1.13
+
+      - name: install flink
+        run: mvn clean install -DskipTests -Dfast
+
